@@ -12,8 +12,6 @@ def find_fk(to_search, to_find):
     return None
 
 
-
-#GiveawayItemFileFormset = modelformset_factory(models.GiveawayItemFile, extra=1, can_delete=True, exclude=('giveaway_item'))
 class MlrmaModelForm(ModelForm):
     '''Represents a form that has multiple formsets for related items.'''
     
@@ -151,13 +149,4 @@ class MlrmaInlineFormSet(BaseInlineFormSet):
         if commit and hasattr(form, 'save_m2m'):
             form.save_m2m()
         return obj
-
-
-#class GiveawayItemInline(admin.StackedInline):
-#    model = models.GiveawayItem
-#    extra = 1
-#    form = GiveawayItemForm
-#    formset = CompoundInlineFormSet
-#    template = 'admin/giveaways/giveawayitemstacked.html'
-#    fields = ('title', 'image', ('description', 'end_message'), ('max_downloads', 'show_remaining_downloads'), 'ordering')
 
