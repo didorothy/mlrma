@@ -140,7 +140,6 @@ class MlrmaInlineFormSet(BaseInlineFormSet):
             if isinstance(obj, list):
                 obj[0].save()
                 for o in obj[1]:
-                    print o[0], o[1], obj[0].id
                     setattr(o[0], o[1].name, obj[0])
                     o[0].save()
             else:
