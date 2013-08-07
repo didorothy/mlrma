@@ -148,4 +148,3 @@ class MlrmaInlineFormSet(BaseInlineFormSet):
         if commit and hasattr(form, 'save_m2m'):
             form.save_m2m()
         return obj
-

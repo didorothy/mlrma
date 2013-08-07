@@ -19,7 +19,7 @@
   {% for formset in inline_admin_form.form.formsets %}<div>
       <h2>{{ formset.opts.verbose_name_plural.title }}</h2>
       {{ formset.management_form }}
-      {{ formset.errors }}
+      {% if formset.non_form_errors %}{% for error in formset.non_form_errors %}{{ error }}{% endfor %}{% endif %}
       <table width="100%">
           <thead>
               <tr>
@@ -28,7 +28,7 @@
           </thead>
           <tbody>
               {% for form in formset %}<tr>
-                  {% for field in form %}<td{% if field.is_hidden %} style="display: none;"{% endif %}{% if field.error %} class="error"{% endif %}>{{ field }}</td>{% endfor %}
+                  {% for field in form %}<td{% if field.is_hidden %} style="display: none;"{% endif %}{% if field.errors %} class="error"{% endif %}>{{ field }}{{ field.errors }}</td>{% endfor %}
               </tr>{% endfor %}
           </tbody>
       </table>
