@@ -59,7 +59,7 @@ class BStackedInline(MlrmaStackedInline):
 class AAdmin(admin.ModelAdmin):
     inlines = [BStackedInline]
 
-admin.stie.register(models.A, AAdmin)
+admin.site.register(models.A, AAdmin)
 ```
 
 
